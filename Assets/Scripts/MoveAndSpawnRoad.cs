@@ -9,13 +9,15 @@ public class MoveAndSpawnRoad : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 direction = new Vector3(0, -1f, 0f);
+        Vector3 direction = new Vector3(0, -1f, 0f);//Вектор движения дороги
         transform.Translate(direction * Time.deltaTime * speed); //Движение дороги
         
         if (transform.position.y < -6.3f)
         {
-            //EditorApplication.isPaused = true; // установка паузы
-            Instantiate(road, new Vector3(0.0f, 6.20f, 0.0f), Quaternion.identity); //Создание дороги в начале
+            Instantiate(
+                road, 
+                new Vector3(0.0f, 6.20f, 0.0f), 
+                Quaternion.identity); //Создание дороги в начале
             Destroy(gameObject); //Удаление дороги
         }
     }
